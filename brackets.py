@@ -18,7 +18,6 @@ def bracket_tes(inp):
     for each in inp:
         if each in open_brackets:
             brackets_stack.append(each)
-            # print brackets_stack
 
         else:
             popped_bracket = brackets_stack.pop()
