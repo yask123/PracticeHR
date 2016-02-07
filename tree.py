@@ -7,7 +7,7 @@ def tree(branchLen, t):
         t.right(20)
         tree(branchLen - 15, t)
         t.left(40)
-        tree(branchLen - 10, t)
+        tree(branchLen - 15, t)
         t.right(20)
         t.backward(branchLen)
 
@@ -17,10 +17,10 @@ def main():
     myWin = turtle.Screen()
     t.left(90)
     t.up()
-    t.backward(100)
+    t.backward(250)
     t.down()
     t.color("green")
-    tree(75, t)
+    tree(150, t)
     myWin.exitonclick()
 
 
