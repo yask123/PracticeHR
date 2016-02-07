@@ -1,3 +1,7 @@
+'''
+Find min number of coins required to give a change
+'''
+
 def min_coins(coin_value_list, change, cache):
     minCoins = change
 
