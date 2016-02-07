@@ -7,6 +7,9 @@ https://projecteuler.net/problem=31
 
 
 def count(list_of_coins, m, change, cache):
+    if cache[change][m]:
+        return cache[change][m]
+
     if change == 0:
         return 1
 
@@ -15,9 +18,10 @@ def count(list_of_coins, m, change, cache):
 
     if m < 0:
         return 0
-    cache[change] = count(list_of_coins, m, change - list_of_coins[m], cache) + count(list_of_coins, m - 1, change,
-                                                                                      cache)
-    return cache[change]
+    cache[change][m] = count(list_of_coins, m, change - list_of_coins[m], cache) + count(list_of_coins, m - 1, change,
+                                                                                         cache)
+    return cache[change][m]
 
 
-print count([1, 2, 5, 10, 20, 50, 100, 200], 7, 200, {})
+cache = [[0 for x in range(8)] for x in range(201)]
+print count([1, 2, 5, 10, 20, 50, 100, 200], 7, 200, cache)
