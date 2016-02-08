@@ -15,10 +15,12 @@ class Binheap:
         self.percUp(self.currentSize)
 
     def percDown(self, i):
-        while i * 2 <= self.currentSize:
+        while (i * 2) <= self.currentSize:
             mc = self.minChild(i)
             if self.heapList[i] > self.heapList[mc]:
-                self.heapList[mc], self.heapList[i] = self.heapList[i], self.heapList[mc]
+                tmp = self.heapList[i]
+                self.heapList[i] = self.heapList[mc]
+                self.heapList[mc] = tmp
             i = mc
 
     def minChild(self, i):
@@ -36,3 +38,19 @@ class Binheap:
         self.currentSize -= 1
         self.heapList.pop()
         self.percDown(1)
+
+    def buildHeap(self, alist):
+        self.currentSize = len(alist)
+        self.heapList = [0] + alist
+        i = self.currentSize // 2
+        print self.heapList
+        while i > 0:
+            self.percDown(i)
+            i -= 1
+
+
+a = Binheap()
+a.buildHeap([1, 2, 3, 4, 5])
+a.insert(0)
+
+print a.heapList[1]
