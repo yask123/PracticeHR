@@ -21,3 +21,9 @@ def sqrt(n):
             end = mid - 1
 
     return ans
+
+
+a = [74, 90, 85, 58, 69, 77, 90, 85, 18, 36]
+a.sort()
+
+print a[-1]
