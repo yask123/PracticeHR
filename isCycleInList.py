@@ -9,24 +9,29 @@ def isCycle(head):
     tortise = head
 
     while rabbit != None and tortise != None:
-        if rabbit.val == tortise.val:
-            return True
+        if rabbit.next == None:
+            break
         try:
             tortise = tortise.next
             rabbit = rabbit.next.next
         except:
+            print 's'
             break
-    return False
+    return tortise.val
+
 
 
 a = LinkedListNode(1)
 b = LinkedListNode(2)
 c = LinkedListNode(3)
 d = LinkedListNode(4)
+e = LinkedListNode(5)
 
 a.next = b
 b.next = c
 c.next = d
-d.next = a
+d.next = e
+
+
 
 print isCycle(a)
